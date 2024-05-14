@@ -28,12 +28,10 @@ public class MentalHealthPlatformBasedOnLvCvcgmApplication {
         Package pkg = MybatisPlusVersion.class.getPackage();
         String mybatisPlusVersion = pkg.getImplementationVersion();
 
-
-
         System.out.println(
                 "———————————————————————————————————————————————————————————————————————————————————————————————————————————\n\t" +
                         "         Access URLs:\thttp://localhost:" + port + path + "              SpringBoot   Version: " + springBootVersion + "\n\t" +
-                        "         DataBase:      MySQL                              Mybatis-Plus Version: " + mybatisPlusVersion + "\n\t" +
+                        "         DataBase:      MySQL                              Mybatis-Plus Version: " + mybatisPlusVersion + "\n" +
                         "———————————————————————————————————————————————————————————————————————————————————————————————————————————");
     }
 
