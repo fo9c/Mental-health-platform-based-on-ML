@@ -9,30 +9,76 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>cn.fo9c</groupId>
-    <artifactId>Mental-health-platform-based-on-LV-CVCGM</artifactId>
+    <artifactId>Mental-health-platform-based-on-ML</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>Mental-health-platform-based-on-LV-CVCGM</name>
-    <description>Mental-health-platform-based-on-LV-CVCGM</description>
+    <name>Mental-health-platform-based-on-ML</name>
+    <description>Mental-health-platform-based-on-ML</description>
     <properties>
         <java.version>17</java.version>
     </properties>
+
+    <!-- ———————————————————————————————————————————————————— -->
     <dependencies>
+
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <!-- MySQL数据库 -->
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- Lombok插件 -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- 引入Mybatis-plus -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-spring-boot3-starter</artifactId>
+            <version>3.5.5</version>
+        </dependency>
+
+        <!-- 引入StringUtils数据判断工具 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.8.1</version>
+        </dependency>
+
+        <!-- 集成P6spy实现SQL日志监控 -->
+        <dependency>
+            <groupId>p6spy</groupId>
+            <artifactId>p6spy</artifactId>
+            <version>3.9.1</version>
+        </dependency>
+
+        <!-- 引入JWT-Token -->
+        <!-- https://mvnrepository.com/artifact/com.auth0/java-jwt -->
+        <dependency>
+            <groupId>com.auth0</groupId>
+            <artifactId>java-jwt</artifactId>
+            <version>4.4.0</version>
+        </dependency>
+
+
     </dependencies>
+    <!-- ———————————————————————————————————————————————————— -->
+
 
     <build>
         <plugins>
