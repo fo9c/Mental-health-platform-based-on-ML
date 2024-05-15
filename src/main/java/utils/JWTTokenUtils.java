@@ -22,13 +22,13 @@ import java.util.Map;
  * }
  */
 
-public class JWTToken {
+public class JWTTokenUtils {
     // 设置JWT秘钥
     private static final String secret = "fo9c.3a";
     // 设置JWT过期时间（7天）
     private static final long expireTime = 1000L * 60 * 60 * 24 * 7;
     // 设置日志记录器
-    private static final Logger JWTlogger = LoggerFactory.getLogger(JWTToken.class);
+    private static final Logger JWTlogger = LoggerFactory.getLogger(JWTTokenUtils.class);
 
     /**
      * 生成新的JWTToken
@@ -50,13 +50,13 @@ public class JWTToken {
      * @param token 待验证的JWTToken
      * @return JWTToken中的负载（PAYLOAD）
      */
-    private static Map<String, Object> parseToken(String token) {
+    public static HashMap<String, Object> parseToken(String token) {
         try {
             // 创建算法实例，用于对JWT进行解码和验证
             Algorithm algorithm = Algorithm.HMAC256(secret);
             DecodedJWT decodedJWT = JWT.require(algorithm).build().verify(token);
-            // 获取JWT的负载（PAYLOAD）作为Map集合返回
-            return decodedJWT.getClaim("claims").asMap();
+            // 获取JWT的负载（PAYLOAD）作为HashMap集合返回
+            return (HashMap<String, Object>) decodedJWT.getClaim("claims").asMap();
         } catch (JWTVerificationException e) {
             // JWT签名不正确或者JWT已经过期时抛出异常
             JWTlogger.error("JWTToken验证失败...");

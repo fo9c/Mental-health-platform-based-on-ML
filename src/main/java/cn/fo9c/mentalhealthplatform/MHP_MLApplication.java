@@ -10,12 +10,12 @@ import org.springframework.core.env.Environment;
 
 @SpringBootApplication
 @MapperScan("mapper")
-public class MentalHealthPlatformBasedOnLvCvcgmApplication {
+public class MHP_MLApplication {
     // 新启动项追加路径显示
     public static void main(String[] args) {
 
         // 下面获取的是URL的环境变量
-        ConfigurableApplicationContext application = SpringApplication.run(MentalHealthPlatformBasedOnLvCvcgmApplication.class, args);
+        ConfigurableApplicationContext application = SpringApplication.run(MHP_MLApplication.class, args);
         Environment env = application.getEnvironment();
         String port = env.getProperty("server.port");
         String property = env.getProperty("server.servlet.context-path");
@@ -30,9 +30,9 @@ public class MentalHealthPlatformBasedOnLvCvcgmApplication {
 
         System.out.println(
                 "———————————————————————————————————————————————————————————————————————————————————————————————————————————\n\t" +
-                        "         Access URLs:\thttp://localhost:" + port + path + "              SpringBoot   Version: " + springBootVersion + "\n\t" +
-                        "         DataBase:      MySQL                              Mybatis-Plus Version: " + mybatisPlusVersion + "\n" +
-                        "———————————————————————————————————————————————————————————————————————————————————————————————————————————");
+                "         Access URLs:   http://localhost:" + port + path + "              SpringBoot   Version: " + springBootVersion + "\n\t" +
+                "         DataBase:      MySQL                              Mybatis-Plus Version: " + mybatisPlusVersion + "\n" +
+                "———————————————————————————————————————————————————————————————————————————————————————————————————————————");
     }
 
 }
