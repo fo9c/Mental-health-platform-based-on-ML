@@ -49,14 +49,11 @@ public class LoginServiceImpl implements LoginService {
         LocalDateTime now = LocalDateTime.now();
         if (userDTO.getId().equals(JWTDetails.get("userID")) &&
                 now.isAfter((LocalDateTime) JWTDetails.get("expireTime"))) {
-            return new UserLoginDetails(userDTO);
+            return new UserLoginDetails(userDTO, JWTDetails);
         } else {
             return new UserLoginDetails("JWTToken已过期或不属于当前用户");
         }
 
-
-
     }
-
 
 }
