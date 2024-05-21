@@ -22,6 +22,14 @@ public class ResponseResult<T> implements Serializable {
         return responseResult;
     }
 
+    public static <T> ResponseResult<T> success(String msg) {
+        ResponseResult<T> responseResult = new ResponseResult<>();
+        responseResult.code = 0;
+        responseResult.msg = msg;
+        responseResult.data = new ArrayList<>();
+        return responseResult;
+    }
+
     public static <T> ResponseResult<T> success(String msg, Object Data) {
         ResponseResult<T> responseResult = new ResponseResult<>();
         responseResult.code = 0;
@@ -38,7 +46,15 @@ public class ResponseResult<T> implements Serializable {
         return responseResult;
     }
 
-public static <T> ResponseResult<T> error(String msg, Object Data) {
+    public static <T> ResponseResult<T> error(String msg) {
+        ResponseResult<T> responseResult = new ResponseResult<>();
+        responseResult.code = 1;
+        responseResult.msg = msg;
+        responseResult.data = new ArrayList<>();
+        return responseResult;
+    }
+
+    public static <T> ResponseResult<T> error(String msg, Object Data) {
         ResponseResult<T> responseResult = new ResponseResult<>();
         responseResult.code = 1;
         responseResult.msg = msg;

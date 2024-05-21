@@ -15,12 +15,12 @@ public class UserController {
     private UserService userService;
 
     /**
-     * 登录
+     * 获取用户信息
      */
     @PostMapping("/login")
     public ResponseResult<Object> login(@RequestHeader("Authorization") String JWTToken,
                                         @RequestBody UserDTO userDTO){
-        UserPO userPO = userService.getUserInfo(userDTO, JWTToken);
+        UserPO userPO = userService.getUserInfoByID(userDTO, JWTToken);
         if (userPO != null) {
             UserVO userVO = UserVO.builder()
                     .id(userPO.getId())
@@ -32,4 +32,18 @@ public class UserController {
             return ResponseResult.error();
         }
     }
+
+    /**
+     * 注册新用户
+     * @return boolean 是否注册成功
+     */
+    @PostMapping("/register")
+    public ResponseResult<Object> register(){
+        if (userService.userRegister()) {
+            return ResponseResult.success("注册成功");
+        } else {
+            return ResponseResult.error("注册失败");
+        }
+    }
+
 }

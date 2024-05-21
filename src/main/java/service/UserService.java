@@ -13,5 +13,11 @@ public interface UserService {
      * @param userDTO 用户信息
      * @return UserVO 用户信息
      */
-    UserPO getUserInfo(UserDTO userDTO, String JWTToken);
+    UserPO getUserInfoByID(UserDTO userDTO, String JWTToken);
+
+    /**
+     * 注册
+     * @return boolean 是否注册成功
+     */
+    boolean userRegister();
 }
